@@ -2,11 +2,14 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/postgres
 {
 	"name": "fastapi template",
-	"dockerComposeFile": ["docker-compose.yml", "docker-compose.keycloak.yml", "docker-compose.db.yml"],
+	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached"
+	],
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
-		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:4": {},
 		"ghcr.io/devcontainers-extra/features/uv:1": {}
 	},
 	"customizations": {
@@ -24,7 +27,7 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// This can be used to network with other containers or the host.
-	"forwardPorts": [5432, 8000, 8080]
+	// "forwardPorts": [5432, 8000, 8080]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip install --user -r requirements.txt",
