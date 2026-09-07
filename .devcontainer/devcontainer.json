@@ -15,9 +15,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"mhutchie.git-graph",
-				"GitHub.copilot-chat",
-				"ms-vscode.remote-repositories"
+				"mhutchie.git-graph"
 			]
 		}
 	},
